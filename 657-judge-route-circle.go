@@ -3,21 +3,21 @@ package main
 import "fmt"
 
 func judgeCircle(moves string) bool {
-	hor := 0
-	ver := 0
+	x := 0
+	y := 0
 	for _, c := range moves {
 		switch c {
 		case 'U':
-			ver++
+			y++
 		case 'D':
-			ver--
+			y--
 		case 'R':
-			hor++
+			x++
 		case 'L':
-			hor--
+			x--
 		}
 	}
-	return hor == 0 && ver == 0
+	return x == 0 && y == 0
 }
 
 func main() {

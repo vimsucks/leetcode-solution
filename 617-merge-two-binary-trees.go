@@ -9,10 +9,11 @@ type TreeNode struct {
 }
 
 func mergeTrees(t1 *TreeNode, t2 *TreeNode) *TreeNode {
-	if t1 == nil && t2 == nil {
+	if t1 == nil && t2 == nil { // both nil
 		return nil
 	}
 	t := &TreeNode{Val: 0}
+	// add up Val
 	if t1 != nil {
 		t.Val += t1.Val
 	}
@@ -20,6 +21,7 @@ func mergeTrees(t1 *TreeNode, t2 *TreeNode) *TreeNode {
 		t.Val += t2.Val
 	}
 
+	// either t1 or t2 is nil
 	if t1 == nil || t2 == nil {
 		if t1 == nil {
 			t.Left = mergeTrees(nil, t2.Left)
@@ -28,7 +30,7 @@ func mergeTrees(t1 *TreeNode, t2 *TreeNode) *TreeNode {
 			t.Left = mergeTrees(t1.Left, nil)
 			t.Right = mergeTrees(t1.Right, nil)
 		}
-	} else {
+	} else { // both t1 and t2 are not null
 		t.Left = mergeTrees(t1.Left, t2.Left)
 		t.Right = mergeTrees(t1.Right, t2.Right)
 	}

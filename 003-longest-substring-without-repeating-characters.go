@@ -4,24 +4,23 @@ import "fmt"
 
 func lengthOfLongestSubstring(s string) int {
 	maxLength := 0
-	// sub 用来记录循环过程中没有出现过重复字符的 substring
+	// substring without repeat character
 	sub := ""
-	// index 用来记录 sub 中的字符在原字符串中的下标
+	// sub's chars' index in the original string
 	index := make(map[rune]int)
 	for i, c := range s {
 		idx, ok := index[c]
 		if !ok {
 			index[c] = i
 			sub += string(c)
-		} else { // 当重复字符出现时
-			// sub 字符串第一个字符在原字符串中的下标
+		} else { // when repeatitive char occured
+			// sub's first char's index in the original string
 			subFirstCharIdx := index[rune(sub[0])]
-			// 在 index 字典中删除 sub 中出现重复的字符以前的所有字符，并截取 sub 字符串，去除出现重复的字符和之前的字符
+			// delete the repetitive char and the chars before it from the index map and the string sub
 			for j := 0; j <= idx-subFirstCharIdx; j++ {
 				delete(index, rune(sub[j]))
 			}
 			sub = sub[idx+1-subFirstCharIdx:len(sub)] + string(c)
-			// 更改为新出现字符的下标
 			index[c] = i
 		}
 		if len(sub) > maxLength {
