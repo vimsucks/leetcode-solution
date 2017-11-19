@@ -8,6 +8,11 @@ func generateParenthesis(n int) []string {
 	return output
 }
 
+/*
+   temp 是一个简单的栈，仅用于存放 '(' 和 ')'
+   当放入 '(' 时，不做特殊处理；而放入 ')' 时，若当前栈顶元素为 '('，则删除栈顶元素，并不放入 ')'
+   随后若 temp 的长度为 0，则该括号串是合法的
+*/
 func generateParenthesisIter(parens string, left int, right int, n int, output *[]string, temp []byte) {
 	if len(parens) == 0 {
 		generateParenthesisIter("(", 1, 0, n, output, append(temp, '('))
