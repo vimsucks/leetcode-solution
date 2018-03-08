@@ -1,0 +1,1 @@
+# Vimsucks' Stupid Leetcode Solution
