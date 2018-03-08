@@ -16,7 +16,7 @@ func climbStairs(n int) int {
 	ways := 0
 	one := n % 2
 	two := n / 2
-	for ; two >= 0; {
+	for two >= 0 {
 		ways += C(one+two, one)
 		one += 2
 		two -= 1

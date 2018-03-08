@@ -36,7 +36,7 @@ func swapPairs(head *ListNode) (newHead *ListNode) {
 	newHead = head.Next
 	var p1, p2, p3 *ListNode
 	p1 = head
-	for p1.Next != nil && p1.Next.Next != nil{
+	for p1.Next != nil && p1.Next.Next != nil {
 		p2 = p1.Next
 		p3 = p1.Next.Next
 		p1.Next = p3.Next

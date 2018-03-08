@@ -15,7 +15,7 @@ func permute(nums []int) [][]int {
 }
 
 func permuteIter(permutation []int, nums []int, permutations *[][]int) {
-	if  len(nums) == 0 {
+	if len(nums) == 0 {
 		*permutations = append(*permutations, permutation)
 	} else {
 		for i, v := range nums {

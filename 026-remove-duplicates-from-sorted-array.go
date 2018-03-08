@@ -12,7 +12,7 @@ func removeDuplicates(nums []int) int {
 		return 0
 	}
 	uniques := 0
-	lastOne := nums[0]+1
+	lastOne := nums[0] + 1
 	length := len(nums)
 	for i := 0; i < length; {
 		if nums[i] != lastOne {
